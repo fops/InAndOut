@@ -1,0 +1,57 @@
+﻿@model InAndOut.Models.Person
+
+<form asp-action="DeletePost" method="post">
+    @Html.AntiForgeryToken()
+    <input asp-for="@Model.Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Delete Expense</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <label asp-for="Eesnimi"></label>
+                        <input asp-for="Eesnimi" class="form-control" disabled />
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Perekonnanimi"></label>
+                        <input asp-for="Perekonnanimi" class="form-control" disabled/>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Isikukood"></label>
+                        <input asp-for="Isikukood" class="form-control" disabled/>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Maksmine"></label>
+                        <select name="Maksmine" asp-for="Maksmine" class="form-control" disabled>
+                            <option value="Kaart">Kaart</option>
+                            <option value="Sularaha">Sularaha</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="Lisainfo"></label>
+                        <input asp-for="Lisainfo" class="form-control" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Delete" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+@*client validation*@
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
